@@ -46,12 +46,18 @@ export const ticketSlice = createSlice({
       state.sortTickets = [];
       action.payload.forEach((item: boolean, index: number) => {
         if (item) {
-          state.sortTickets = [
-            ...state.sortTickets,
+          // state.sortTickets = [
+          //   ...state.sortTickets,
+          //   ...state.tickets.filter(
+          //     (ticket: Ticket) => ticket.segments[0].stops.length === index - 1
+          //   ),
+          // ];
+
+          state.sortTickets.push(
             ...state.tickets.filter(
               (ticket: Ticket) => ticket.segments[0].stops.length === index - 1
-            ),
-          ];
+            )
+          );
         }
       });
     },

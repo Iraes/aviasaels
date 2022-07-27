@@ -66,16 +66,16 @@ function App() {
     sort,
   ]);
 
-  const sortedTicketList = ticketsState.sortTickets.map(
-    (ticket: Ticket, index: number) => {
+  const sortedTicketList = ticketsState.sortTickets
+    .map((ticket: Ticket, index: number) => {
       return (
         <Card
           ticket={ticket}
           key={`${ticket.price}${ticket.carrier}${ticket.segments[0].duration}${index}`}
         />
       );
-    }
-  );
+    })
+    .slice(0, 5);
 
   return (
     <div className={s.App}>
