@@ -49,11 +49,7 @@ function App() {
       dispatch(fetchTickets(ticketsState.searchId));
     }
 
-    if (ticketsState.stop && ticketsState.ticketError) {
-      isLoading.current = false;
-    } else {
-      isLoading.current = true;
-    }
+    isLoading.current = !(ticketsState.stop && ticketsState.ticketError);
 
     if (ticketsState.searchId && isFirstLoad.current) {
       dispatch(fetchTickets(ticketsState.searchId));
