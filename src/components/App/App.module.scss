@@ -28,8 +28,29 @@
   display: flex;
   flex-direction: column;
   grid-column: 2/3;
+  margin-bottom: 40px;
 
   @media (max-width: 900px) {
     grid-column: 1/2;
+  }
+}
+
+.add-btn {
+  grid-column: 2/3;
+  padding: 15px 30px;
+  background-color: #2196F3;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #1290f5;
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
   }
 }

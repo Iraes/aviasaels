@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
 import logo from "../assets/logo.svg";
@@ -27,6 +27,7 @@ const filterList: Array<string> = [
 const tabsList: Array<string> = ["самый дешевый", "самый быстрый"];
 // "оптимальный",
 function App() {
+  const [ticketCount, setTicketCount] = useState(5);
   const dispatch = useAppDispatch();
   const ticketsState = useSelector((state: RootState) => state.ticket);
   const checked = useSelector(selectCheckbox);
@@ -75,7 +76,7 @@ function App() {
         />
       );
     })
-    .slice(0, 5);
+    .slice(0, ticketCount);
 
   return (
     <div className={s.App}>
@@ -90,6 +91,12 @@ function App() {
             : "Рейсов, подходящих под заданные фильтры, не найдено"}
         </>
       </div>
+      <button
+        className={s["add-btn"]}
+        onClick={() => setTicketCount(ticketCount + 5)}
+      >
+        Показать еще 5 билетов
+      </button>
     </div>
   );
 }
